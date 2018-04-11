@@ -1,0 +1,28 @@
+/*----------------
+    General
+-----------------*/
+* {
+    /*box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   font-family: 'Poiret One', cursive;*/
+}
+
+
+html, body {
+
+    /*width: 100%;
+    min-width:400px;
+    background: transparent;*/
+
+}
+body {
+    /*color: #fff;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-weight: 300;
+    position: relative;
+    letter-spacing: 0.05rem;
+    line-height: 1.5;
+    text-align: center;
+    background-color: #000000 !important;*/
+}
