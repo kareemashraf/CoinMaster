@@ -1,10 +1,37 @@
 $(document).ready(function () {
 
-console.log('teesttstsystuygjhg');
+console.log(fetchdata());
     $('#table').DataTable();
     
 
 });
+
+function getdata(){
+	var xhr = new XMLHttpRequest();
+
+		xhr.open("GET", "https://api.coinmarketcap.com/v1/ticker/", false);  
+		xhr.send();
+		
+		return JSON.parse(xhr.response); //city details
+
+}
+
+
+function fetchdata(){
+
+	var data = getdata();
+
+
+		for (var i = 0; i< data.length; i++) {
+			console.log(data[i].name);
+			$("#tbody").append("<tr id='"+i+"'>");
+			$("#tbody #"+i+"").append("<td><img id='coin-icon' src='https://coinmark.co/assets/extension/coins/"+data[i].id+".png'>"+ (i+1)+" "+' '+data[i].name+"</td>");
+			$("#tbody").append("</tr>");
+		}
+
+
+	
+}
 
 // function init(){
 
