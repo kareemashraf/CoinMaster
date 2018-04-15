@@ -43,3 +43,7 @@ body {
 #coin-icon{
     width: 10%
 }
+
+.dataTables_paginate{
+    display: none;
+}
