@@ -27,11 +27,18 @@ function fetchdata() {
         "aaSorting": [[1, "asc"]],
         "columnDefs": [
             {className: "coin", "targets": [0]}
-        ]
+        ],
+        "fixedHeader": {
+            "header": true
+        }
     });
 
 
-    for (var i = 0; i < data.length; i++) {
+
+
+
+
+		for (var i = 0; i< data.length; i++) {
 
         t.row.add([
             "<img id='coin-icon' src='https://coinmark.co/assets/extension/coins/" + data[i].id + ".png'>" + " " + data[i].name,
