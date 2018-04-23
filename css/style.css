@@ -39,6 +39,7 @@ body {
 
 #table{
     width: 40000px;
+    /*text-align: center;*/
 }
 #coin-icon{
     width: 10%
@@ -53,3 +54,33 @@ body {
 .col-sm-6{
     display: contents;
 }
+
+.coin{
+    width: 50%;
+}
+
+#load-more{
+    width: 80%;
+    margin: 1% 0%;
+}
+
+#table_info{
+    padding-top: 0px;
+}
+
+.green{
+    color: green;
+}
+
+.red{
+    color: red;
+}
+
+
+
+
+
+
+
+
+
