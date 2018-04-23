@@ -23,8 +23,13 @@ var limit = 10;
 	var data = getdata(start, limit);
 	var t = $('#table').DataTable({
         'iDisplayLength': -1,
-        "bPaginate": false
+        "bPaginate": false,
+        "fixedHeader": {
+            "header": true
+    	} 
     });
+
+
 
 
 		for (var i = 0; i< data.length; i++) {
