@@ -29,25 +29,34 @@ body {
     background-color: #000000 !important;*/
 }
 
-/*#table_filter {*/
-    /*float: right;*/
-/*}*/
-
-/*#table_length{*/
-    /*float: left;*/
-/*}*/
 
 #table{
     width: 40000px;
     /*text-align: center;*/
 }
 #coin-icon{
-    width: 10%
+    width: 5%
 }
 
 #table_filter{
-    float: left;
-    margin-left: 3%;
+    margin-right: 5%;
+    margin-top: 1%;
+}
+
+#table_length label{
+    display: none !important;
+}
+
+.col-sm-7{
+    display: none !important;
+}
+
+#table_info{
+    display: none !important;
+}
+
+#table_length {
+    margin-left: 5%;
     margin-top: 1%;
 }
 
@@ -76,10 +85,23 @@ body {
     color: red;
 }
 
+/*remove sorting arrows*/
+table.dataTable thead .sorting {
+    background : none !important;
+}
+table.dataTable thead .sorting_asc {
+    background : none !important;
+}
+table.dataTable thead .sorting_desc {
+    background : none !important;
+}
 
-
-
-
+.currency {
+    float: right;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    /*margin-left: 470px;*/
+}
 
 
 

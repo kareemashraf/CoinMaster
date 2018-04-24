@@ -18,69 +18,59 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/fixedheader/3.1.3/css/fixedHeader.dataTables.min.css" >
 </head>
 <body>
+    
 
-<select class="form-control" id="currency">
-    <option value="USD">USD</option>
-    <option value="AUD">AUD</option>
-    <option value="BRL">BRL</option>
-    <option value="CAD">CAD</option>
-    <option value="CHF">CHF</option>
-    <option value="CLP">CLP</option>
-    <option value="CNY">CNY</option>
-    <option value="CZK">CZK</option>
-    <option value="DKK">DKK</option>
-    <option value="EUR">EUR</option>
-    <option value="GBP">GBP</option>
-    <option value="HKD">HKD</option>
-    <option value="HUF">HUF</option>
-    <option value="IDR">IDR</option>
-    <option value="ILS">ILS</option>
-    <option value="INR">INR</option>
-    <option value="JPY">JPY</option>
-    <option value="KRW">KRW</option>
-    <option value="MXN">MXN</option>
-    <option value="MYR">MYR</option>
-    <option value="NOK">NOK</option>
-    <option value="NZD">NZD</option>
-    <option value="PHP">PHP</option>
-    <option value="PKR">PKR</option>
-    <option value="PLN">PLN</option>
-    <option value="RUB">RUB</option>
-    <option value="SEK">SEK</option>
-    <option value="SGD">SGD</option>
-    <option value="THB">THB</option>
-    <option value="TRY">TRY</option>
-    <option value="TWD">TWD</option>
-    <option value="ZAR">ZAR</option>
-</select>
-
-		<table id="table" class=" display " style="width:100%;margin-top: 0px !important;">
+		<table id="table" class=" display nowrap" style="width:100%;margin-top: 0px !important;">  
+            <!-- <div id="currencys" class="col-sm-12"> -->
+       <!--  <select class="form-control currency" >
+                <option value="USD">USD</option>
+                <option value="AUD">AUD</option>
+                <option value="BRL">BRL</option>
+                <option value="CAD">CAD</option>
+                <option value="CHF">CHF</option>
+                <option value="CLP">CLP</option>
+                <option value="CNY">CNY</option>
+                <option value="CZK">CZK</option>
+                <option value="DKK">DKK</option>
+                <option value="EUR">EUR</option>
+                <option value="GBP">GBP</option>
+                <option value="HKD">HKD</option>
+                <option value="HUF">HUF</option>
+                <option value="IDR">IDR</option>
+                <option value="ILS">ILS</option>
+                <option value="INR">INR</option>
+                <option value="JPY">JPY</option>
+                <option value="KRW">KRW</option>
+                <option value="MXN">MXN</option>
+                <option value="MYR">MYR</option>
+                <option value="NOK">NOK</option>
+                <option value="NZD">NZD</option>
+                <option value="PHP">PHP</option>
+                <option value="PKR">PKR</option>
+                <option value="PLN">PLN</option>
+                <option value="RUB">RUB</option>
+                <option value="SEK">SEK</option>
+                <option value="SGD">SGD</option>
+                <option value="THB">THB</option>
+                <option value="TRY">TRY</option>
+                <option value="TWD">TWD</option>
+                <option value="ZAR">ZAR</option>
+        </select> -->
+    <!-- </div> -->
         <thead >
             <tr>
-                <th>Rank</th>
                 <th>Coin</th>
+                <th>Rank</th>
                 <th>Price</th>
-                <th>Change 1H</th>
-                <th>Change 24H</th>
-                <th>Change 7D</th>
+                <th>1H</th>
+                <th>24H</th>
+                <th>7D</th>
 
             </tr>
         </thead>
         <tbody id="tbody">
-
-
+            <!-- table body content -->
         </tbody>
-        <tfoot>
-            <tr>
-                <th>Rank</th>
-                <th>Coin</th>
-                <th>Price</th>
-                <th>Change 1H</th>
-                <th>Change 24H</th>
-                <th>Change 7D</th>
-
-            </tr>
-        </tfoot>
     </table>
     <center>
         <button id="load-more" type="button" class="btn btn-success">Load More</button>
