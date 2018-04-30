@@ -35,7 +35,7 @@ body {
     /*text-align: center;*/
 }
 .coin-icon{
-    width: 5%
+    width: 8%
 }
 
 #table_filter{
@@ -101,6 +101,14 @@ table.dataTable thead .sorting_desc {
     margin-top: 0px;
     margin-bottom: 0px;
     /*margin-left: 470px;*/
+}
+
+table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+    background-color: #fff0cc !important;
+}
+
+table.dataTable.display tbody tr.odd>.sorting_1, table.dataTable.order-column.stripe tbody tr.odd>.sorting_1 {
+    background-color: #fff0cc !important
 }
 
 

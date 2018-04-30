@@ -54,15 +54,16 @@ function fetchdata(currency) {
     for (var i = 0; i < data.length; i++) {
 
         var img_name = (data[i].name).toLowerCase();
-        img_name = img_name.replace(" ", "-");
+        img_name = img_name.replace(/ /g, "-");
 
         t.row.add([
-            "<img class='coin-icon " + img_name + "'  src='https://coinmark.co/assets/extension/coins/" + img_name + ".png'  > " + " " + data[i].name,
+            "<img class='coin-icon " + img_name + " ' src='https://coinmark.co/assets/extension/coins/" + img_name + ".png'   >" + " <a target='_blank' href='https://coinmarketcap.com/currencies/"+img_name+"' >" + data[i].name+"</a>",
             data[i].rank,
-            eval("data[" + i + "]." + price) + " " + symbol(currency),
+           Number(eval("data[" + i + "]." + price)).toFixed(3) + " " + symbol(currency),
             "<div class='hour" + i + "'>" + data[i].percent_change_1h + "%</div>",
             "<div class='day" + i + "'>" + data[i].percent_change_24h + "%</div>",
-            "<div class='week" + i + "'>" + data[i].percent_change_7d + "%</div>"
+            "<div class='week" + i + "'>" + data[i].percent_change_7d + "%</div>",
+            "<a href='https://changelly.com/widget/v1?auth=email&from=usd&to="+data[i].symbol+"' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>Buy</button> </a> | <a><button type='button' class='btn btn-danger btn-xs'>Sell</button></a>"
         ]).draw(false);
 
         if (data[i].percent_change_1h > 0) {
@@ -103,15 +104,16 @@ function fetchdata(currency) {
         for (var i = 0; i < data.length; i++) {
 
             var img_name = (data[i].name).toLowerCase();
-            img_name = img_name.replace(" ", "-");
+            img_name = img_name.replace(/ /g, "-");
 
             t.row.add([
-                "<img class='coin-icon " + img_name + " ' src='https://coinmark.co/assets/extension/coins/" + img_name + ".png'   >" + " " + data[i].name,
+                "<img class='coin-icon " + img_name + " ' src='https://coinmark.co/assets/extension/coins/" + img_name + ".png'   >" + " <a target='_blank' href='https://coinmarketcap.com/currencies/"+img_name+"' >" + data[i].name+"</a>",
                 data[i].rank,
-                eval("data[" + i + "]." + price) + " " + symbol(currency),
+                Number(eval("data[" + i + "]." + price)).toFixed(3)  + " " + symbol(currency),
                 "<div class='hour" + i + "'>" + data[i].percent_change_1h + "%</div>",
                 "<div class='day" + i + "'>" + data[i].percent_change_24h + "%</div>",
-                "<div class='week" + i + "'>" + data[i].percent_change_7d + "%</div>"
+                "<div class='week" + i + "'>" + data[i].percent_change_7d + "%</div>",
+                "<a href='https://changelly.com/widget/v1?auth=email&from=usd&to="+data[i].symbol+"' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>Buy</button> </a> | <a href='https://changelly.com/widget/v1?auth=email&from="+data[i].symbol+"&to=usd' target='_blank'><button type='button' class='btn btn-danger btn-xs'>Sell</button></a>"
             ]).draw(false);
 
             if (data[i].percent_change_1h > 0) {
