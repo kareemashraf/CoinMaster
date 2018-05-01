@@ -103,14 +103,30 @@ table.dataTable thead .sorting_desc {
     /*margin-left: 470px;*/
 }
 
-table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+thead{
+    background-color: #5bb85b;
+    color: white;
+}
+
+
+/*table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
     background-color: #fff0cc !important;
 }
 
 table.dataTable.display tbody tr.odd>.sorting_1, table.dataTable.order-column.stripe tbody tr.odd>.sorting_1 {
-    background-color: #fff0cc !important
+    background-color: #fff0cc !important;
 }
 
+table.dataTable tbody tr {
+    background-color: #f3e7c4  !important;
+}
+table.dataTable.display tbody tr.even>.sorting_1, table.dataTable.order-column.stripe tbody tr.even>.sorting_1 {
+    background-color: #f3e7c4  !important;
+}
 
+td.highlight {
+    background-color: whitesmoke !important;
+}
+*/
 
 
