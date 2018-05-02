@@ -70,7 +70,7 @@ function fetchdata(currency) {
             "<div class='hour" + i + "'>" + data[i].percent_change_1h + "%</div>",
             "<div class='day" + i + "'>" + data[i].percent_change_24h + "%</div>",
             "<div class='week" + i + "'>" + data[i].percent_change_7d + "%</div>",
-            "<a href='https://changelly.com/widget/v1?auth=email&from=usd&to="+data[i].symbol+"' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>Buy</button> </a> | <a><button type='button' class='btn btn-danger btn-xs'>Sell</button></a>"
+            "<a href='https://changelly.com/widget/v1?auth=email&from=usd&to="+data[i].symbol+"' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>Buy</button> </a> | <a href='https://changelly.com/widget/v1?auth=email&from="+data[i].symbol+"&to=usd' target='_blank' ><button type='button' class='btn btn-danger btn-xs'>Sell</button></a>"
         ]).draw(false);
 
         if (data[i].percent_change_1h > 0) {
