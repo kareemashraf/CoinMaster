@@ -38,6 +38,7 @@ function fetchdata(currency) {
     var data = getdata(currency, start, limit);
 
     var t = $('#table').DataTable({
+        "responsive": true,
         "iDisplayLength": -1,
         // "bPaginate": false,
         "aaSorting": [[1, "asc"]],
