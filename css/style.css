@@ -19,15 +19,7 @@ html, body {
     /*background: transparent;*/
 
 }
-body {
-    /*font-family: 'Alegreya Sans', sans-serif;
-    font-weight: 300;
-    position: relative;
-    letter-spacing: 0.05rem;
-    line-height: 1.5;
-    text-align: center;
-    background-color: #000000 !important;*/
-}
+
 
 div.dataTables_length select,
 div.dataTables_wrapper div.dataTables_filter label {
