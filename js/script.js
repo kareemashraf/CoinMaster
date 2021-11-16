@@ -6,7 +6,7 @@ $(document).ready(function () {
         fetchdata(null);
         // add currencies
         curr();
-    }, 300);
+    }, 100);
 
 
     $(document).on('change', 'select', curchange);
