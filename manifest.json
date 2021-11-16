@@ -1,16 +1,16 @@
 {
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "name": "Coin Master",
-    "version": "1.0",
+    "version": "2.1",
     "manifest_version": 2,
     "description": "Check cryptocurrencies' prices, changes on your browser immediately..",
     "browser_action":   {
-        "default_icon": "img/icon.png",
+        "default_icon": "img/Bitcoin-icon.png",
         "default_popup": "popup.html"
     },
     "icons": { 
-        "16": "img/icon16.png",
-        "48": "img/icon48.png",
-        "128": "img/icon128.png" }
+        "16": "img/Bitcoin-icon.png",
+        "48": "img/Bitcoin-icon.png",
+        "128": "img/Bitcoin-icon.png" }
 
 }
