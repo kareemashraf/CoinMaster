@@ -11,13 +11,15 @@ $(document).ready(function () {
 
 });
 
-function getdata(currency, start, limit) {
+function getdata(currency, page, start, limit ) {
 
     // var currency = $(".currency").val();
+    console.log('page = ',page);
 
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", "https://api.coinmarketcap.com/v1/ticker/?start=" + start + "&limit=" + limit + "&convert=" + currency, false);
+    // xhr.open("GET", "https://pro-api.coinmarketcap.com/v1/ticker/?start=" + start + "&limit=" + limit + "&convert=" + currency, false);
+    xhr.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency="+currency+"&order=market_cap_desc&per_page=100&page="+page+"&sparkline=false", false);
     xhr.send();
 
     return JSON.parse(xhr.response); //city details
@@ -27,66 +29,60 @@ function getdata(currency, start, limit) {
 
 function fetchdata(currency) {
 
-    var start = 0;
-    var limit = 10;
+    var page = 1;
 
     if (currency == null) {
         currency = "USD";
     }
 
 
-    var data = getdata(currency, start, limit);
+    var data = getdata(currency, page);
 
     var t = $('#table').DataTable({
         "responsive": true,
         "iDisplayLength": -1,
         // "bPaginate": false,
         "aaSorting": [[1, "asc"]],
-        "columnDefs": [
-            {className: "coin", "targets": [0]}
-        ],
+        // "columnDefs": [
+        //     {className: "coin", "targets": [0]}
+        // ],
         "fixedHeader": {
             "header": true
         }
     });
+    $('table.dataTable thead .sorting_asc').css('background-image', 'none' );
+
+    $( "#table tbody tr" ).mouseover(function() {
+          $(this).addClass("highlight");
+        });
 
 
-        // $( "#table tbody tr" ).mouseover(function() {
-        //   $(this).addClass("highlight");
-        // });
-
-
-    var price = "price_" + currency.toLowerCase();
+    // var price = "price_" + currency.toLowerCase();
 
 
     for (var i = 0; i < data.length; i++) {
 
         var img_name = (data[i].name).toLowerCase();
-        img_name = img_name.replace(/ /g, "-");
+        // img_name = img_name.replace(/ /g, "-");
 
         t.row.add([
-            "<img class='coin-icon " + img_name + " ' src='https://coinmark.co/assets/extension/coins/" + img_name + ".png'   >" + " <a target='_blank' href='https://coinmarketcap.com/currencies/"+img_name+"' >" + data[i].name+"</a>",
-            data[i].rank,
-           symbol(currency)+" "+Number(eval("data[" + i + "]." + price)).toFixed(3),
-            "<div class='hour" + i + "'>" + data[i].percent_change_1h + "%</div>",
-            "<div class='day" + i + "'>" + data[i].percent_change_24h + "%</div>",
-            "<div class='week" + i + "'>" + data[i].percent_change_7d + "%</div>",
+            "<img class='coin-icon ' src='"+data[i].image+"'   >" + " <a target='_blank' href='https://coinmarketcap.com/currencies/"+img_name+"' >" + data[i].name+"</a>",
+            data[i].market_cap_rank,
+           symbol(currency)+" "+data[i].current_price+'',
+            "<div class='hour" + i + "'>" +symbol(currency)+ data[i].market_cap + "</div>",
+            "<div class='day" + i + "'>" + data[i].price_change_percentage_24h + "%</div>",
+            "<div class='week" + i + "'>" + data[i].ath_change_percentage + "%</div>",
             "<a href='https://changelly.com/widget/v1?auth=email&from=usd&to="+data[i].symbol+"' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>Buy</button> </a> | <a href='https://changelly.com/widget/v1?auth=email&from="+data[i].symbol+"&to=usd' target='_blank' ><button type='button' class='btn btn-danger btn-xs'>Sell</button></a>"
         ]).draw(false);
 
-        if (data[i].percent_change_1h > 0) {
-            $(".hour" + i).addClass("green");
-        } else {
-            $(".hour" + i).addClass("red");
-        }
 
-        if (data[i].percent_change_24h > 0) {
+        if (data[i].price_change_percentage_24h > 0) {
             $(".day" + i).addClass("green");
         } else {
             $(".day" + i).addClass("red");
         }
 
-        if (data[i].percent_change_7d > 0) {
+        if (data[i].ath_change_percentage > 0) {
             $(".week" + i).addClass("green");
         } else {
             $(".week" + i).addClass("red");
@@ -98,16 +94,16 @@ function fetchdata(currency) {
     $("#load-more").click(function () {
         clicks++;
 
-        if (clicks > 1) {
-            start = start + 20;
-        } else {
-            start = start + 10;
+        if (clicks >= 1) {
+            page = page + 1;
         }
+        // else {
+        //     page = page;
+        // }
 
-        limit = 20;
-        console.log(clicks + " from " + start + " to: " + (limit + start));
+        console.log("clicks= "+clicks + " pages= " + page);
         var currency = $(".currency").val();
-        var data = getdata(currency, start, limit);
+        var data = getdata(currency, page);
 
 
         for (var i = 0; i < data.length; i++) {
@@ -116,28 +112,22 @@ function fetchdata(currency) {
             img_name = img_name.replace(/ /g, "-");
 
             t.row.add([
-                "<img class='coin-icon " + img_name + " ' src='https://coinmark.co/assets/extension/coins/" + img_name + ".png'   >" + " <a target='_blank' href='https://coinmarketcap.com/currencies/"+img_name+"' >" + data[i].name+"</a>",
-                data[i].rank,
-                symbol(currency)+" "+Number(eval("data[" + i + "]." + price)).toFixed(3),
-                "<div class='hour" + i + "'>" + data[i].percent_change_1h + "%</div>",
-                "<div class='day" + i + "'>" + data[i].percent_change_24h + "%</div>",
-                "<div class='week" + i + "'>" + data[i].percent_change_7d + "%</div>",
+                "<img class='coin-icon' src='"+data[i].image+"'   >" + " <a target='_blank' href='https://coinmarketcap.com/currencies/"+img_name+"' >" + data[i].name+"</a>",
+                data[i].market_cap_rank,
+                symbol(currency)+" "+data[i].current_price+'',
+                "<div class='hour" + i + "'>" +symbol(currency)+ data[i].market_cap + "</div>",
+                "<div class='day" + i + "'>" + data[i].price_change_percentage_24h + "%</div>",
+                "<div class='week" + i + "'>" + data[i].ath_change_percentage + "%</div>",
                 "<a href='https://changelly.com/widget/v1?auth=email&from=usd&to="+data[i].symbol+"' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>Buy</button> </a> | <a href='https://changelly.com/widget/v1?auth=email&from="+data[i].symbol+"&to=usd' target='_blank'><button type='button' class='btn btn-danger btn-xs'>Sell</button></a>"
             ]).draw(false);
 
-            if (data[i].percent_change_1h > 0) {
-                $(".hour" + i).addClass("green");
-            } else {
-                $(".hour" + i).addClass("red");
-            }
-
-            if (data[i].percent_change_24h > 0) {
+            if (data[i].price_change_percentage_24h > 0) {
                 $(".day" + i).addClass("green");
             } else {
                 $(".day" + i).addClass("red");
             }
 
-            if (data[i].percent_change_7d > 0) {
+            if (data[i].ath_change_percentage > 0) {
                 $(".week" + i).addClass("green");
             } else {
                 $(".week" + i).addClass("red");
