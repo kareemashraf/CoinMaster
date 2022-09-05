@@ -1,7 +1,7 @@
 {
     "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
     "name": "Coin Master",
-    "version": "2.3",
+    "version": "2.4",
     "manifest_version": 2,
     "description": "Check cryptocurrencies' prices, changes on your browser immediately..",
     "browser_action":   {
