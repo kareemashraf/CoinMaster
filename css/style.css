@@ -41,7 +41,7 @@ html, body {
 
 div.dataTables_length select,
 div.dataTables_wrapper div.dataTables_filter label {
-    color: white;
+    /* color: white; */
 }
 
 
