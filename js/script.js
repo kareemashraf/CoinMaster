@@ -88,7 +88,7 @@ function render(t, currency, data) {
             "<div class='hour" + i + "'>" + symbol(currency) + data[i].market_cap + "</div>",
             "<div class='day" + i + "'>" + data[i].price_change_percentage_24h + "%</div>",
             "<div class='week" + i + "'>" + data[i].ath_change_percentage + "%</div>",
-            "<a href='https://changelly.com/widget/v1?auth=email&from=usd&to=" + data[i].symbol + "' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>Buy</button> </a> | <a href='https://changelly.com/widget/v1?auth=email&from=" + data[i].symbol + "&to=usd' target='_blank' ><button type='button' class='btn btn-danger btn-xs'>Sell</button></a>"
+            "<a href='#' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>trade CFD</button> </a> "
         ]).draw(false);
 
 
