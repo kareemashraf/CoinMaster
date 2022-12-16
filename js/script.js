@@ -88,7 +88,7 @@ function render(t, currency, data) {
             "<div class='hour" + i + "'>" + symbol(currency) + data[i].market_cap + "</div>",
             "<div class='day" + i + "'>" + data[i].price_change_percentage_24h + "%</div>",
             "<div class='week" + i + "'>" + data[i].ath_change_percentage + "%</div>",
-            "<a href='#' target='_blank'><button type='button'  class='btn btn-primary btn-xs'>trade CFD</button> </a> "
+            "<a href='https://1f02djso-z6k1mebvmurwxho24.hop.clickbank.net/?cbpage=trade-like-a-crypto-whale' target='_blank'><button type='button'  class='btn btn-success btn-xs'>Earn more!</button> </a> "
         ]).draw(false);
 
 
