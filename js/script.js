@@ -22,7 +22,7 @@ function getdata(currency, page) {
     // xhr.open("GET", "https://pro-api.coinmarketcap.com/v1/ticker/?start=" + start + "&limit=" + limit + "&convert=" + currency, false);
     xhr.open("GET", "https://api.coingecko.com/api/v3/coins/markets?vs_currency=" + currency + "&order=market_cap_desc&per_page=100&page=" + page + "&sparkline=false", false);
     xhr.send();
-    console.log('sssss:', xhr.readyState);
+    console.log('readyState:', xhr.readyState);
     return JSON.parse(xhr.response); //city details
 
 }
@@ -88,7 +88,7 @@ function render(t, currency, data) {
             "<div class='hour" + i + "'>" + symbol(currency) + data[i].market_cap + "</div>",
             "<div class='day" + i + "'>" + data[i].price_change_percentage_24h + "%</div>",
             "<div class='week" + i + "'>" + data[i].ath_change_percentage + "%</div>",
-            "<a href='https://1f02djso-z6k1mebvmurwxho24.hop.clickbank.net/?cbpage=trade-like-a-crypto-whale' target='_blank'><button type='button'  class='btn btn-success btn-xs'>Earn more!</button> </a> "
+            "<a href='https://www.kucoin.com/r/af/rMGWQSA' target='_blank'><button type='button'  class='btn btn-success btn-xs'>Earn more!</button> </a> "
         ]).draw(false);
 
 
